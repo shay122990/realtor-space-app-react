@@ -1,6 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 
+const menuItems = [
+  { path: "/home", text: "Home" },
+  { path: "/offers", text: "Offers" },
+  { path: "/sign-in", text: "Sign In" },
+];
+
 export default function Header() {
   const location = useLocation();
 
@@ -17,36 +23,18 @@ export default function Header() {
           <img className='h-28' src={logo} alt='logo' />
         </Link>
         <ul className='flex space-x-10'>
-          <li>
-            <Link
-              to='/home'
-              className={`text-gray-500 hover:text-regal-blue ${isActive(
-                "/home"
-              )}`}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/offers'
-              className={`text-gray-500 hover:text-regal-blue ${isActive(
-                "/offers"
-              )}`}
-            >
-              Offers
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/sign-in'
-              className={`text-gray-500 hover:text-regal-blue ${isActive(
-                "/sign-in"
-              )}`}
-            >
-              Sign In
-            </Link>
-          </li>
+          {menuItems.map((item) => (
+            <li key={item.path}>
+              <Link
+                to={item.path}
+                className={`text-gray-500 hover:text-regal-blue ${isActive(
+                  item.path
+                )}`}
+              >
+                {item.text}
+              </Link>
+            </li>
+          ))}
         </ul>
       </header>
     </div>
