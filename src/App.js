@@ -5,13 +5,15 @@ import SignIn from "./routes/signIn.component";
 import SignUp from "./routes/signUp.component";
 import ForgotPassword from "./routes/forgotPassword.component";
 import Offers from "./routes/offers.component";
+import Header from "./components/header.component";
 
 function App() {
   return (
     <>
       <Router>
+        <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
